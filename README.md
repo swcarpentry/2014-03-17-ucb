@@ -24,6 +24,21 @@ You should not try to use the same repo for both purposes because:
 2.  you really don't want a learner accidentally overwriting your lessons
     while you're trying to teach.
 
+
+**Table of Contents**
+
+[Background](#background)  
+[Getting Started](#getting-started)  
+[Previewing the Site](#previewing-the-site)  
+[Layout and Variables](#layout-and-variables)  
+[Include Files](#include-files)  
+[Instructors and Sponsors](#instructors-and-sponsors)  
+[Lesson Material](#lesson-material)  
+[Other Lesson Material](#other-lesson-material)  
+[Improving This Material](#improving-this-material)  
+[FAQ](#faq)
+
+
 Background
 ----------
 
@@ -137,9 +152,9 @@ To create a website for a new bootcamp:
 
 ![Alt text](img/readme/step1.png)
 
-3.  Add the template repository `git@github.com:swcarpentry/bc.git` as a remote named `swcarpentry`:
+3.  Add the template repository `https://github.com/swcarpentry/bc.git` as a remote named `swcarpentry`:
 
-        git remote add swcarpentry git@github.com:swcarpentry/bc.git
+        git remote add swcarpentry https://github.com/swcarpentry/bc.git
 
 ![Alt text](img/readme/step2.png)
 
@@ -184,20 +199,13 @@ on the other hand,
 should have the Software Carpentry look and feel
 and the information about your bootcamp.
 
-You can also "preview" your pages by committing them to your repo
-and then pushing to GitHub
-so that GitHub does the translation.
-If you do this,
-be aware that it may take GitHub a couple of minutes to regenerate your web site,
-and that you may need to clear your browser's cache
-in order to display that page correctly.
-
 **Note:**
 you will need to install Jekyll 1.0.3 or later in order to preview things locally.
 If you have Ruby installed on your computer,
 this *should* be as simple as:
 
     gem install jekyll
+    gem install redcarpet
 
 We try to use the same MarkDown interpreters as GitHub does for
 consistency.  On OS X, we suggest you use a recent Ruby to get access
@@ -210,6 +218,11 @@ brew install ruby
 gem install jekyll
 gem install redcarpet 
 ```
+
+If you don't have `make` in your machine, you can build the preview with:
+
+    jekyll -t build -d _site
+
 
 Layout and Variables
 --------------------
@@ -248,9 +261,7 @@ must define the following values in its YAML header:
     that should go in the main body of your page.
 *   `instructor` is a comma-separated list of instructor names.
     This *must* be enclosed in square brackets, as in
-    `["Alan Turing","Grace Hopper"]`,
-    and there must *not* be spaces after the commas
-    (really: believe it or not, they can cause translation to fail).
+    `["Alan Turing","Grace Hopper"]`
 *   `contact` is the contact email address to use for your bootcamp.
 
 Include Files
@@ -347,13 +358,14 @@ To send them to us as a pull request:
 1.  Fork the `bc` repository on GitHub.
 2.  Make that a remote named "upstream" of your local YYYY-MM-DD-site repository:
 
-        git remote add upstream git@github.com:<me>/bc.git
+        git remote add upstream https://github.com/<me>/bc.git
 
 (replacing 'me' with your GitHub username)
 
 ![Alt text](img/readme/step3.png)
 
-3.  Isolate the changes you want to share in a branch and push them to GitHub:
+3.  Isolate the changes you want to share in a branch and push them to GitHub
+    (you should have added `swcarpentry` as a remote in Step 3 of [Getting Started](#getting-started)):
 
         git fetch swcarpentry
         git checkout -t swcarpentry/gh-pages -b improvements
@@ -399,6 +411,32 @@ FAQ
     If we're going to teach people to use that site,
     we should teach them to use it as it is,
     not as we wish it was.
+
+*   *What do I do if I see a `invalid byte sequence in ...` error when I run `make check`?*
+    <br/>
+    Declare the `en_US.UTF-8` locale in your shell:
+
+        export LC_ALL=en_US.UTF-8
+        export LANG=en_US.UTF-8
+
+*   *What do I do if I see a `Conversion error` when I run `make check`?*
+    <br/>
+    The error message may look something like this:
+
+        Configuration file: d:/OpenCourses/swc/2013-10-17-round6.4/_config.yml
+                Source: d:/OpenCourses/swc/2013-10-17-round6.4
+           Destination: _site
+          Generating... c:/Ruby193/lib/ruby/gems/1.9.1/gems/posix-spawn-0.3.6/lib/posix/spawn.rb:162: wa
+        rning: cannot close fd before spawn
+        Conversion error: There was an error converting 'lessons/misc-biopython/fastq.md'.
+        done.
+        
+    This is a [problem in Pygments.rb](http://stackoverflow.com/questions/17364028/jekyll-on-windows-pygments-not-working)
+    Uninstall pygments.rb 0.5.1 or 0.5.2, install 0.5.0.  For example, here's how you would
+    uninstall pygments 0.5.2 and restore version 0.5.0:
+    
+        gem uninstall pygments.rb --version "=0.5.2"
+        gem install pygments.rb --version "=0.5.0"
 
 *   *Where should pages go if multiple boot camps are running at a site simultaneously?*
     <br/>

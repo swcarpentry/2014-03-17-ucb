@@ -61,7 +61,9 @@ Here's some guidance for teaching this material:
 - Make sure the network is working <em>before</em> starting this lesson.
 - Give learners a ten-minute overview of what version control does for them
   before diving into the watch-and-do practicals.
-  Most of them will have tried to co-author papers by emailing files back and forth,
+  Most of them will have tried to co-author papers by emailing files back and forth
+  (or in more recent years using cloud storage with file synchronization,
+  e.g. Dropbox, Google Drive, ...),
   or will have biked into the office
   only to realize that the USB key with last night's work
   is still on the kitchen table.
@@ -121,23 +123,32 @@ our email address,
 and that we want it to colorize output.
 
 There are a few more configuration variables to set depending on your OS. First, 
-choose a text editor. This might be textedit on the Mac, or Notepad on windows. The default
-is probably vi, which frightens people. If they've installed a better editor for the workshop, use that instead. 
+choose a text editor. We recommend that novices use [GNU
+nano](http://en.wikipedia.org/wiki/GNU_nano) because it's easy to use and
+works in most operating systems. Some other options
+might be TextEdit on the Mac, gedit on GNU/Linux or Notepad on Windows. The
+default on many systems is vi, which is not a friendly text editor for beginners.
+If they've installed a better editor for the workshop, use that instead.
 Make sure the editor runs from the command line as configured; use a full path if necessary. 
+
+    $ git config --global core.editor "nano"
+
 The second OS-specific option deals with the different handling of line endings. If they ever collaborate 
 with a computer on another OS, this configuration will prevent headaches.
 
-On Windows:
-```
-$ git config --global core.editor "notepad"
-$ git config --global core.autocrlf "true"
-```
+On Mac:
 
-On Mac or Linux:
-```
-$ git config --global core.editor "textedit"
-$ git config --global core.autocrlf "input"
-```
+    $ git config --global core.autocrlf "input"
+
+
+On GNU/Linux:
+
+    $ git config --global core.autocrlf "input"
+
+
+On Windows:
+
+    $ git config --global core.autocrlf "true"
 
 
 We can now start actually using Git.
@@ -228,7 +239,7 @@ $ git status
 #
 ```
 
-Git now knows that it's supposed to keep tack of this file,
+Git now knows that it's supposed to keep track of this file,
 but it *hasn't* recorded our changes for posterity---not yet.
 To do that,
 we need to run one more command:
@@ -693,7 +704,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 Let's add and commit those changes
-(the `-A` flag to `git commit` means "add everything"):
+(the `-A` flag to `git add` means "add everything"):
 
 ```
 $ git add -A
@@ -945,6 +956,7 @@ FIXME: diagram
 Now let's switch to the `moons` branch and make a different change there:
 
 ```
+$ git checkout moons
 $ echo "This line added in the moons branch" >> moons.txt
 $ cat moons.txt
 Phobos is larger than Deimos
@@ -1064,7 +1076,7 @@ Phobos is larger than Deimos
 Lines added in the master and moons branches
 ```
 
-The key phrase here is "fast forward"
+The key phrase here is "fast-forward"
 (which appears in the output of the `git merge` command).
 Since we had already resolved the conflicts between
 the copies of `moons.txt` in the `master` and `moons` branches,
@@ -1396,6 +1408,7 @@ the process looks like this:
   which  makes it much easier for other scientists
   to use her work as starting point for their own research.
 
+<!-- SJE: Can you give a reference to support "Studies have shown"? -->
 Studies have shown that the more open model accelerates discovery,
 and that more open work is more widely cited.
 However,
