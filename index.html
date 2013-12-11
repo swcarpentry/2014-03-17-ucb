@@ -2,15 +2,15 @@
 layout: bootcamp
 root: .
 venue: University of California Berkeley
-address: TBD
+address: Location TBD
 country: United-States
 humandate: Jan 18-19, 2014
-humantime: 9:00 am - 4:30 pm
+humantime: 9:00 am - 5:00 pm
 startdate: 2014-01-18
 enddate: 2014-01-19
 latlng: 34.413963,-119.848947
-registration: open
-instructor: ["Justin Kitzes"]
+registration: restricted
+instructor: ["Justin Kitzes", "Chris Holdgraf"]
 contact: jkitzes@berkeley.edu
 ---
 {% include bootcamps/instructors.html %}
@@ -34,3 +34,16 @@ contact: jkitzes@berkeley.edu
     {% include setup/overview-python.html %}
   </div>
 </div>
+
+<h2>Reference Guides</h2>
+
+<ul>
+  <li><a href="{{page.root}}/lessons/ref/shell.html">The Unix Shell</a></li>
+  <li><a href="{{page.root}}/lessons/ref/python.html">Python</a></li>
+</ul>
+
+<h2>Instructors</h2>
+
+{% include people/kitzes.j.html %}
+
+<p></p>
