@@ -9,8 +9,8 @@ humantime: 9:00 am - 4:30 pm
 startdate: 2014-01-31
 enddate: 2014-02-01
 latlng: 34.412114,-119.842014
-registration: open
-instructor: ["Justin Kitzes"]
+registration: restricted
+instructor: ["Justin Kitzes", "Mark Wilber"]
 contact: jkitzes@berkeley.edu
 ---
 {% include bootcamps/instructors.html %}
@@ -34,3 +34,16 @@ contact: jkitzes@berkeley.edu
     {% include setup/overview-python.html %}
   </div>
 </div>
+
+<h2>Reference Guides</h2>
+
+<ul>
+  <li><a href="{{page.root}}/lessons/ref/shell.html">The Unix Shell</a></li>
+  <li><a href="{{page.root}}/lessons/ref/python.html">Python</a></li>
+</ul>
+
+<h2>Instructors</h2>
+
+{% include people/kitzes.j.html %}
+
+<p></p>
