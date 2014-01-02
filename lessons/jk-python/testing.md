@@ -260,7 +260,7 @@ easy to run a specific test(s) from your `test*.py` file.  Taking our example,
 if I were only interested in running my `test_muskox_is_correct` test I 
 could simply type 
 
-`nosetests mean_sightings.py:test_muskox_is_correct`  
+`nosetests test_mean_sightings.py:test_muskox_is_correct`  
 
 This can be quite handy when certain tests aren't behaving as expected.
 
