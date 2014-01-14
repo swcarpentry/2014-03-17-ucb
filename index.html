@@ -2,7 +2,7 @@
 layout: bootcamp
 root: .
 venue: University of California Berkeley
-address: Location TBD
+address: Moffitt 103
 country: United-States
 humandate: Jan 18-19, 2014
 humantime: 9:00 am - 5:00 pm
@@ -10,19 +10,25 @@ startdate: 2014-01-18
 enddate: 2014-01-19
 latlng: 34.413963,-119.848947
 registration: restricted
-instructor: ["Justin Kitzes", "Chris Holdgraf"]
+instructor: ["Justin Kitzes", "Dav Clark", "Chris Holdgraf", "Mark Wilber"]
 contact: jkitzes@berkeley.edu
 ---
 {% include bootcamps/instructors.html %}
 {% include bootcamps/what.html %}
 {% include bootcamps/who.html %}
+
+<p>
+  <strong>Where:</strong>
+  The bootcamp will be held in Moffitt 103. Facing the main entrance to Moffitt library, look to your right, and you'll see a breezeway entrance with the word "Classrooms" above it. Go through the breezeway and into the door. Straight ahead is the stairwell and to the right is the elevator. Go down to the basement floor and look for room 103.
+</p>
+
 {% include bootcamps/requirements.html %}
 {% include bootcamps/python.html %}
 {% include bootcamps/contact.html %}
 
 <hr/>
 
-<h2>Setup</h2>
+<h2>Overview</h2>
 
 <div class="row-fluid">
   <div class="span6">
@@ -33,7 +39,120 @@ contact: jkitzes@berkeley.edu
     {% include setup/overview-git.html %}
     {% include setup/overview-python.html %}
   </div>
+  <div class="span6">
+    {% include setup/vm.html %}
+  </div>
 </div>
+
+<h3>Testing your setup</h3>
+{% include setup/testing.html %}
+
+<h2>Schedule</h2>
+      <div id="schedule" class="row-fluid">
+        <div class="span4">
+          <strong>Day 1</strong>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>9:00 - 9:30</td>
+                <td style="text-align: right;">Introduction</td>
+                <td style="text-align: right;">-</td>
+              </tr>
+              <tr>
+                <td>9:30 - 11:00</td>
+                <td style="text-align: right;">
+                    <a href="{{page.root}}/lessons/shell/tutorial.html">The Unix Shell</a></td>
+              </tr>
+              <tr>
+                <td>11:00 - 11:15</td>
+                <td style="text-align: right;">Coffee</td>
+                <td style="text-align: right;">-</td>
+              </tr>
+                <td>11:15 - 12:30</td>                
+                <td style="text-align: right;">
+                  <a href="{{page.root}}/lessons/git-notebook/git-for-scientists.slides.html"> Version control with git</a></td>
+              </tr>
+              <tr>
+                <td>12:30 - 1:30</td>
+                <td style="text-align: right;">Lunch</td>
+                <td style="text-align: right;">-</td>
+              </tr>
+              <tr>
+                <td>1:30 - 2:30</td>
+                <td style="text-align: right;">
+                  <a href="{{page.root}}/lessons/git-notebook/git-for-scientists.slides.html">More git</a></td>
+                <td style="text-align: right;">-</td>
+              </tr>
+              <tr>
+                <td>2:30 - 3:15</td>
+                <td style="text-align: right;">
+                    <a href="{{page.root}}/lessons/python/python.html">Programming in Python</a>
+                </td> 
+              </tr>
+              <tr>
+                <td>3:15-3:30</td>
+                <td style="text-align: right;">Coffee</td>
+                <td style="text-align: right;">-</td>
+              </tr>
+<tr>
+                <td>3:30 - 5:00</td>
+                <td style="text-align: right;">
+                    <a href="{{page.root}}/lessons/python/python.html">More Python</a>
+                </td> 
+              </tr>
+             </tbody>
+          </table>
+          
+          <strong>Day 2</strong>
+          <table class="table">
+            <tbody>
+           <tr>
+                <td>9:00 - 11:00</td>
+                <td style="text-align: right;">
+                  Scientific computing in Python
+                </td>
+            </tr>
+            <tr>
+                <td>11:00 - 11:15</td>
+                <td style="text-align: right;">Coffee</td>
+                <td style="text-align: right;">-</td>
+           </tr>
+           <tr>
+                <td>11:30 - 12:30</td>
+                <td style="text-align: right;">
+                  More scientific computing in Python
+                </td>
+           </tr>
+              <tr>
+                <td>12:30 - 1:30</td>
+                <td style="text-align: right;">Lunch</td>
+                <td style="text-align: right;">-</td>
+              </tr>
+              <tr>
+                <td>1:30 - 3:15</td>
+                <td style="text-align: right;">
+                  <a href="{{page.root}}/lessons/testing/index.html"> Software validation and testing</a></td>
+              </tr>
+                <td>3:15 - 3:30</td>
+                <td style="text-align: right;">Coffee</td>                
+                <td style="text-align: right;">-</td>
+              </tr>
+
+              <tr>
+                <td>3:30 - 5:00</td>
+                <td style="text-align: right;">
+                  <a
+                href="{{page.root}}/lessons/testing/index.html">Reproducible research workflow</a></td>
+              </tr>
+           </tbody>
+          </table>
+        </div>
+      </div> <!-- schedule -->
+
+
+	<div id="etherpad-link" class="row-fluid">
+	  We will use the following <a href="https://etherpad.mozilla.org/swcucb201401">Etherpad page</a> to communicate and take notes together.
+	</div>
 
 <h2>Reference Guides</h2>
 
