@@ -52,18 +52,18 @@ extract the mean number of animals seen per sighting from a csv file. First,
 let's place this function in an external module. To do this, copy the code 
 below into a text file in this directory, and name it `mean_sightings.py`.
 
-	import matplotlib.mlab as ml
+	import pandas as pd
 	import numpy as np
 	
 	def get_sightings(filename, focusanimal):
 	
 		# Load table
-		tab = ml.csv2rec(filename)
+		tab = pd.read_csv(filename)
 	
 		# Find number of records and total count of animals seen
-		isfocus = (tab['animal'] == focusanimal)
+		isfocus = (tab['Animal'] == focusanimal)
 		totalrecs = np.sum(isfocus)
-		meancount = np.mean(tab['count'][isfocus])
+		meancount = np.mean(tab['Count'][isfocus])
 	
 		# Return num of records and animals seen
 		return totalrecs, meancount
@@ -217,7 +217,7 @@ written this code in the previous lesson, so we can simply erase our existing
 	def get_sightings(filename, focusanimal):
 	
 	    # Load table
-	    tab = ml.csv2rec(filename)
+	    tab = pd.read_csv(filename)
 		
 		# Standardize capitalization of focusanimal
 		focusanimal = focusanimal.capitalize()
@@ -225,10 +225,10 @@ written this code in the previous lesson, so we can simply erase our existing
 	    # Loop through all records, countings recs and animals
 	    totalrecs = 0
 	    totalcount = 0
-	    for rec in tab:
-			if rec['animal'] == focusanimal:
+	    for i, rec in tab.iterrows(): # Iterate through DataFrame rows
+			if rec['Animal'] == focusanimal:
 	            totalrecs += 1
-	            totalcount += rec['count']
+	            totalcount += rec['Count']
 	
 	    meancount = totalcount/totalrecs
 	

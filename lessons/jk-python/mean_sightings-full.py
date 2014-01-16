@@ -6,26 +6,26 @@ given sightings csv file.
 '''
 
 import sys
-import matplotlib.mlab as ml
+import pandas as pd
 import numpy as np
 
 
 def get_sightings(filename, focusanimal):
 
     # Load table
-    tab = ml.csv2rec(filename)
+    tab = pd.read_csv(filename)
 
     # Standardize capitalization of focusanimal
     focusanimal = focusanimal.capitalize()
 
     # Find number of records and total count of animals seen
-    isfocus = (tab['animal'] == focusanimal)
+    isfocus = (tab['Animal'] == focusanimal)
     totalrecs = np.sum(isfocus)
 
     if totalrecs == 0:
         meancount = 0
     else:
-        meancount = np.mean(tab['count'][isfocus])
+        meancount = np.mean(tab['Count'][isfocus])
 
     # Return num of records and animals seen
     return totalrecs, meancount
@@ -34,18 +34,18 @@ def get_sightings(filename, focusanimal):
 def get_sightings_loop(filename, focusanimal):
 
     # Load table
-    tab = ml.csv2rec(filename)
+    tab = pd.read_csv(filename)
 
-    # Standardize capitalization of focusanimal
+    # Standardize capitalization of focus animal
     focusanimal = focusanimal.capitalize()
 
     # Loop through all records, countings recs and animals
     totalrecs = 0
     totalcount = 0
-    for rec in tab:
-        if rec['animal'] == focusanimal:
+    for i, rec in tab.iterrows(): # Iterate through DataFrame rows
+        if rec['Animal'] == focusanimal:
             totalrecs += 1
-            totalcount += rec['count']
+            totalcount += rec['Count']
 
     meancount = totalcount/totalrecs
 
