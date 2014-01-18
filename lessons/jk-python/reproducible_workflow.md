@@ -127,7 +127,7 @@ file will then travel with your code, so if you push your repository to Github
 (for example) and one of your collaborators clones a copy, they'll have 
 everything they need to generate your results.
 
-However, if your file is realatively large AND is backed up elsewhere, you 
+However, if your file is relatively large AND is backed up elsewhere, you 
 might want to avoid making a duplicate copy in the `.git` directory.
 
 In either case, you'll want to ensure that every one of your data files has 
@@ -287,7 +287,7 @@ into it.
 	'''
 
 	import numpy as np
-	import matplotlib.mlab as ml
+    import pandas as pd
 	import matplotlib.pyplot as plt
 	from mean_sightings import get_sightings
 
@@ -353,12 +353,12 @@ bottom of `runall.py`, and add the text below.
 	# Save results as table 
 	# ------------------------------------------------------------------------
 
-	# Put two lists into a recarray table
-	table = np.array(zip(spp_names, spp_recs),
-					 dtype=[('species', 'S12'), ('recs', int)])
+	# Put two lists into a pandas DataFrame
+	table = pd.DataFrame(np.array(zip(spp_names, spp_recs),
+					 dtype=[('species', 'S12'), ('recs', int)]))
 
-	# Save recarray as csv
-	ml.rec2csv(table, results_dir + table_name)
+	# Save DataFrame as csv
+    table.to_csv(results_dir + table_name, index=False)
 
 This code simply takes our two lists, the list of species names and of records, 
 and creates a record array from them. The syntax to do this might seem 
@@ -367,8 +367,10 @@ as the "recipe" that one uses to turn several lists into a record array. The
 `dtype` variable is used to name each "column" in our recarray and to tell 
 Python the format of each column. The first column, called 'species', is given 
 the format 'S12', which means a string of up to 12 characters. The second 
-column, recs, is given the format int, which stands for an integer. We then use 
-a helper function from `mlab` to save our recarray as a csv file.
+column, recs, is given the format int, which stands for an integer. This
+structured array can easily be converted into a pandas DataFrame.  We then use
+the `to_csv` function to save our pandas DataFrame as a csv file.  The command
+`index=False` tells pandas not to output the index column.
 
 Once again, go back to your Terminal window and execute this file. Check to see 
 that the csv file was correctly created and saved in the `results` directory.
