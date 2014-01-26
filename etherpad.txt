@@ -1,0 +1,259 @@
+Software Carpentry at Cal, January 18th-19th, 2014
+
+Welcome to our etherpad! 
+
+Please enter your name on the top right of the page (where it says <enter your name>)
+
+You can write things (notes, questions) in this text-box. You can also use the chat box on the bottom right to communicate with instructors, helpers, and other participants. Try it out! 
+
+Good
+-------
+Variety of different introductions  +1+1+1+1+1+1
+Beginning well paced +1+1+1
+git was easy to learn+1 +1+1+1+1
+Explanation in contexts of actual research+1(references to R were helpful)
+Notepad files with both Full and Empty so we can replicate teachings at home+1+1
+Liked having the instructions easily accessible online/website (for future reference) +1+1+1+1+1+1
+Enjoyed learning the basic syntax in python, eg for conditional statements/loops/white spacing+1
+This (MoPad thing)+1
+Great introduction to python and git, to know what they're capable of and useful for. 
+Thanks for organizing this! 
+Great having three instructors to ask questions while one was teaching +1
+A great crash course of Python - critical for getting started
+great overview of many topics +1
+I like the etherpad for asking questions without interrupting lesson flow
+The exercises!
+Just awesome. Thank you !!!
+THANK YOU! Thannnks!+1
+
+Bad
+-----
+I tended to get lost at the end of the lessons+1+1+1+1+1
+Pandas and matplotlib was too fast +1+1+1+1+1+1+1
+Some of the lectures fel a little rushed+1+1+1+1
+If you knew GIT already, today's morning wasn't very useful+1
+I would prefer to just ask questions in person+1-1-1
+
+There was less python than I expected+1
+
+
+Change next time
+-----------------------
+Perhaps split the group into more experienced/less experienced towards the end of lessons for two branches of instruction+1 +1+1+1-1
+
+A couple more python data analysis and plotting examples would have been useful
+
+Maybe a list of all the python, terminal, etc. commands that we used for reference later.+1+1
+
+More general programming
+go a little deeper into a topic rather than lots of introductions to various topics/subjects
+For those who have no idea what Git is, perhaps a more in-depth "philosophical" explanation of what Git is about 
+
+---
+
+Lingering Questions
+--------------------------
+
+Do you recommend python for dealing with stata?
+
+Why did you say Git is useful for large/small (?) files ?
+
+What are .pyc files? They are being created in the src folder and when I want to commit the whole directory, they are being added into the commit...(here mean_sightings.pyc)
+
+are there best practices for keeping subdirectories clean (src/, man/, results/)? How concerned should I be about clutter (or more sub-directories) in these directories?
+
+Best practices/work flow for raw data...my data comes in from the field as Excel files. Should I save as .csv and "clean up" the data, keeping track of any changes with Git? Then the final version goes into the /data folder?
+
+What process works best for exporting data from Access (doesn't run on a mac)
+
+Would you recommend using Python instead of Matalb from the beginning for a Controls class? Or would you just continue with Matlab and then try it in Python?
+
+Resources for moving toward manuscript preparation out of the terminal/using version control?
+
+
+---
+
+
+
+Questions
+--------------
+What was the least clear specific topic from today? What do you most need/want clarification or more information about?
+
+for vs. while looping +2
+
+Panda was hard to keep up with. Good instruction though, and I will use the material as a starting point
+
+I lost somewhat track during the 2nd module and became completely lost during the 3rd module (Panda, matplot)...hope to catch up tonight.
+
+Using the Pandas dataframes. How to understand the data structures that Pandas creates/manipulates (so that you can do things like boolean indexing).
+
+Pandas and read/write functions. Wide range of functions and was covered pretty quickly so was unable to troubleshoot. But I will mostly use pandas and matplotlib as reference.
+
+Pandas and the Read and write  tutorial +2+1 +1
+
+The reading/writing went very fast. I think it'll become more clear after getting through the examples... We'll see!
+
+The last part was a little bit difficult to understand...
+ 
+Bit confused on Pandas and the rest went a little fast  but I'll go back to it on my own time. 
+
+Pandas was a bit too fast, hard to follow everything. Will need time to absorb. The principle is clear, but hard to grasp the nitty-gritty at first run.
+
+---
+
+Affilliation
+------------
+ERG: +1,+1,+1,+1
+ESPM +1+1, +1,1, 1, +1,+1
+Other: 1,1 +1, 1,+1, +1, 1
+(CEE,EPS, CBE,MCB, MVZ, GSPP)
+
+--
+Ctrl-C for hanging shell
+
+TIP: If the shell seems to be hanging (aka, not responding to your input, not returning anything if you tell it to do something), try pressing Ctrl-C.  This will usually exit out of whatever state the shell is in.
+
+--
+Pre-appending
+
+Pre-appending one file to the other? Don't do this: cat birds.csv mammals.csv >> mammals.csv (causes some kind of infinite loop)
+- Just output to a different file name, that will work.
+
+Pre-appending: A quick google shows that there are a few ways to pre-append to a file, but they require a bit more than a simple command like ">>"
+
+--
+Enthought Canopy vs. others
+
+Question about Enthought Canopy. Do you recommend it in general, or just for the purposes of this class?
+
+I would highly recommend it.  It has most of the Scientific packages that you would use in your daily life as a researcher.  Anything it doesn't have you can easily install using pip install package_name from the Unix terminal.
+
+Agree - if you want to install new packages, you can either do it graphically through the Canopy program, or you can use a program called pip. Ironically, you first need to run `easy_installl pip` at the command line to install pip, and then you can use pip to install, upgrade, remove, etc. other Python packages.
+
+I'd also say Canopy is great, though I personally use the "Anaconda Distribution", which is basically the same thing, with a slightly different set of packages.  Either is fine.
+
+--
+Running shell code from within python
+
+How do you run a python script from the shell? Also how do you run shell commands from within python?
+
+You can run python scripts in the shell by typing python myscript.py
+This just runs all of the python code that is inside myscript.py.
+You can make your script fancy by allowing people to pass flags when running a script in this way, and we'll cover this tomorrow.
+
+For running shell commands from within python, you can use the bang (!) symbol to instruct python to run that command in the shell.  For example, if I'm in python and I type "!ls", then it will list the contents of the folder I'm in. (This works in the IPython notebook, it's a bit more complicated in a python script - see the module os.subprocess)
+
+
+--
+Reloading functions when you change them
+
+When saving a function as a .py file, can you only save the text without the comments for it to successfully import into notebook? It didn't import the first time I tried when I saved the function with the comments at the top... I think that it shouldn't matter if there are comments at the top - there might have been another issue in the script. The script needs to have import numpy as np at the top to work. Then if you tried to import the script once and want to try again, you need to use reload(pops) instead of import pops to force the notebook to reload the module.OK. I get 
+'NameError: global name 'np' is not defined' now, when I include a line to import numpy.
+Hmm, your pops.py file should say
+
+import numpy as np
+def logistic...
+
+and then in your notebook, try running a cell that says
+
+reload(pops)
+logistic_growth(...
+
+Does that still give the error? No. Thanks, that works. I was using import(pop) as opposed to reload(pop). reload() seemed to help, does that make sense? Never used Reload(), but if it worked I believe it :P. The reloading is necessary becuase python tries to be smart and only import a module once - if you run import again, and the module is already imported, it skips it - the reload forces python to load the module again. So without reload, you're stuck with the original non-functioning import before you added the import numpy as np line to pops. Thanks!
+
+
+-- 
+Basemaps
+
+If you want to have some fun, check out the Basemap library in matplotlib.  A pretty awesome mapping module.
+
+
+-- 
+Environments in Python
+
+After some searching, I now understand that ipython is a kind of "better" python (??). What about running it - which environment do you use in your work? Is there an uncontested winner (as RStudio for R), or is the situation more diverse?
+
+I wouldn't say there is an uncontested winner.  Most Python users develop their own environment in which they work.  You have seen Canopy, which is a "mini" Python environment that is pretty good to begin with.  I use Vim with some modifications to integrate with Python and this works pretty well for me.
+
+Another thing worth checking out is the Spyder python development environment.  It's kind of like RStudio, but for python. https://code.google.com/p/spyderlib/
+Here's another distribution, similar to Canopy: https://store.continuum.io/cshop/anaconda/
+Here's a really great text editor if you want something outside the terminal: http://www.sublimetext.com/
+
+That said, I do most of my work using IPython notebooks.
+
+If you're looking for something that looks like the R or Matlab GUI, I would also suggest looking at the Wing IDE. But, hopefully through this bootcamp, you'll feel comfortable working with some of the "less hand holding" tools like the notebook and plain text scripts.
+
+
+-- 
+Python Environments
+
+Who builds/owns/maintains python code? (similar to the previous question) what coding environments are used and are best? are there packages that cost money?
+
+Guido van Rossum is the father of Python. He created it with the idea of making a beautiful language that was easy to use (at least that is what I have been told...).  That being said, Python is open source, which mean that anyone who wants to contribute code can.  For example, some of the packages that we have seen, Numpy and Scipy, are written by third parties who just wanted to have these tools in the Python environment.  Check out the webiste https://pypi.python.org/pypi.  It contains hundreds and hundreds of third party packages that will allow you to do almost anything you want in Python.  All of the packages on PyPi are free...I can't think of any packages that cost money, but there are definitely Python environments that cost money if you want to go that route.
+
+Almost all of the packages you'll come across are open source, which means they're both free to buy and free to change/modify/resuse. Pretty nice of the authors, eh? Many of them on Github.
+
+-- 
+Some good resources for learning git
+
+Good interactive git tutorial - http://pcottle.github.io/learnGitBranching/?nodemo
+Fernando Perez git tutorial for scientists - http://nbviewer.ipython.org/urls/raw.github.com/fperez/reprosw/master/Version%20Control.ipynb
+Github fun tutorial on git: http://try.github.io/levels/1/challenges/1
+A very helpful, free book about git: http://git-scm.com/book
+
+--
+
+Database in Python:  You have a lot of options.  One that I have heard a lot of good things about is SciDB http://scidb.org/.  Completely open source and built for scientific research.
+
+-- 
+Moving a file
+use: mv File/I/Want/To/Move Destination/To/Move/It/To
+
+As a shortcut, remember that .. is a short way of saying "one directory up". A single period, . , is the shortcut for this directory. So if you want to move a file from /some/path to the current folder you're in, you can use
+mv /some/path .
+
+--
+How do I access R functions from within Python?
+
+Go to the terminal and run "sudo pip install rpy2".  You will be prompted to type in your password and then Python will download the rpy2 package for you.  Once you have the rpy2 package here is an example of using it.  Make a python script (e.g. playing_with_rpy2.py)
+
+import rpy2.robjects as robjects
+
+# Any valid r code can go in the quotes
+robjects.r("x <- 3; plot(c(4:10))")
+
+# You can access the R variable x with the following command
+x = robjects.globalenv['x']
+
+# Now Python recognizes the variable x as well
+
+Here is some more information: http://rpy.sourceforge.net/rpy2/doc-dev/html/overview.html
+
+Alternatively, if you're in an IPython notebook, you can add this to the top of a cell:
+%%R
+Or you can add this before a single line: 
+%R
+now, anything that you run in that cell/line will be executed as R code (If you've got rpy2 and R installed)
+More info: http://nbviewer.ipython.org/github/ipython/ipython/blob/master/examples/notebooks/R%20Magics.ipynb
+
+--
+Color the output in the Mac Terminal
+
+http://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output
+
+--
+Other good text editors:
+http://www.sublimetext.com/
+http://notepad-plus-plus.org/
+http://macromates.com/
+
+--
+I mistakenly first used git init within the data sub-directory. So now I have a repository for data directory as well as the camera-analysis git directory... Can this be fixed?
+
+sure - to delete a git repository, just delete the .git folder inside that repository.  That's it! But if i did this IRL, I'd lose the separate version for the first repository?
+
+Oh so you used git init in the data sub-directory first? Yeah.
+
+In that case it'd be a bit trickier. If it were real life, I'd look online to figure out a way to transfer a git structure from one repository to another. That said, it's pretty difficult to do this unintentionally, because usually it'll be pretty clear if you're in the wrong repository from the beginning. Right... thanks! 
+
+If worst comes to worst, and you don't have a huge history, you could always just start from scratch.
