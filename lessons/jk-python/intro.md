@@ -98,6 +98,9 @@ extention (i.e., .ipynb) is retained.
     - [Master Notebook](matplotlib-full.ipynb)
     - [Image](lena.png)
 
+*   R and Python
+    - [R and Python tutorial](python-R-full.ipynb)
+
 Starting an IPython Notebook
 ----------------------------
 
