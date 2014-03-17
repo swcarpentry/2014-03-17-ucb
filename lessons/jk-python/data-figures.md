@@ -14,5 +14,5 @@ The files
   - [Student notebook](readwrite-empty.ipynb)
   - [Master notebook](readwrite-full.ipynb)
 - Matplotlib
-  - [Student notebook](matplotlib.ipynb)
+  - [Student notebook](matplotlib-empty.ipynb)
   - [Master notebook](matplotlib-full.ipynb)
