@@ -377,6 +377,14 @@ There are some useful flags for this command, such as
     --until=X.minutes/hours/days/weeks/months/years or YY-MM-DD-HH:MM
     --author=<pattern>
 
+That's a lot of options, and can be a lot to type! Justin Kitzes recommends the
+following combo as a good starter set of git log examples:
+
+    $ git config --global alias.lg "log --oneline --graph --decorate --all"
+
+If you now type `git lg`, you’ll see that does the same thing as the long line
+that we entered above.
+
 ## git reset : Unstaging a staged file
     git reset filename     (opposite of 'git add filename')
 

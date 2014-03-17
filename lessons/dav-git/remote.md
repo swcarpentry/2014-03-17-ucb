@@ -1,8 +1,8 @@
 ---
 layout: lesson
 root: ../..
-testrepo: 2013-12-25-euphoric
-username: instructor
+testrepo: 2014-03-18-git-fundamentals
+username: dlab-berkeley
 title: "Version Control With Git: Using Remote Repositories"
 ---
 ## github.com?
@@ -11,12 +11,12 @@ GitHub is a site where many people store their open (and closed) source
 code repositories. It provides tools for browsing, collaborating on and
 documenting code. Your home institution may have a repository hosting
 system of it's own. To find out, ask your system administrator.  GitHub,
-much like other forge hosting services (
+much like other code hosting services (
 [launchpad](https://launchpad.net), [bitbucket](https://bitbucket.org),
 [googlecode](http://code.google.com), [sourceforge](http://sourceforge.net)
-etc.) provides :
+etc.) provides:
 
--   landing page support 
+-   landing page support
 -   wiki support
 -   network graphs and time histories of commits
 -   code browser with syntax highlighting
@@ -30,12 +30,69 @@ etc.) provides :
 want to share (in the most liberal sense) your stuff with the world, pay
 github money for private repos, or host your own.
 
-## github pasword 
+## github pasword
 
 Setting up github at first requires a github user name and password.
 Please take a moment to [create a free one](https://github.com/signup/free)
 (if you want to start paying, you can add that to your account some other
-day). 
+day).
+
+Eventually, you may want to set up public key encryption (GitHub has
+documentation on how to add SSH keys).
+
+## Intro to collaboration
+
+Step 1: Make any old change to the VERY BOTTOM of the index.md file. Add and
+commit that change!
+
+Step 2: Wait for me to push a change (also at the VERY BOTTOM), then pull my changes.
+
+Step 3: We have a (easy to solve) problem!
+
+    $ git pull
+    Auto-merging index.md
+    CONFLICT (content): Merge conflict in index.md
+    Automatic merge failed; fix conflicts and then commit the result.
+
+OK - this is actually GREAT!
+
+If this happened in a real-world situation, we'd still have a copy of the
+changes we made in both places, plus we have a local version of the file that's
+marked up to show us where the confusion is. If we forget what's going on, we
+can always ask git:
+
+    $ git status
+    On branch gh-pages
+    Your branch and 'origin/gh-pages' have diverged,
+    and have 1 and 1 different commit each, respectively.
+      (use "git pull" to merge the remote branch into yours)
+
+    You have unmerged paths.
+      (fix conflicts and run "git commit")
+
+    Unmerged paths:
+      (use "git add <file>..." to mark resolution)
+
+        both modified:      index.md
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+So, just edit the file.
+
+    $ nano index.md
+
+And, you should see something like
+
+```
+<<<<<<< HEAD
+Stuff you wrote
+=======
+Stuff I wrote
+>>>>>>> a-long-hash-string
+```
+
+You don't need to pay attention to the details of the hash, etc., just edit that
+block to make it how it *should* be.
 
 ## git remote : Steps for Forking a Repository
 
@@ -53,11 +110,11 @@ fork, others that may be **parallel** to your fork, and so on.
 In step 1, you will make a copy "fork" of our test repository {{page.testrepo}} 
 on github.  This gives you a copy of this repository that you control.
 
-In step 2, you will make a copy of **your** fork of the repository on your 
-hard drive.
+In step 2, you will change the name of the {{page.username}} repository on your
+hard drive to "upstream".
 
 In step 3, you will let git know that in addition to your local copy and 
-your fork on github, there is another github repository (called "upstream") 
+the upstream repo on github, there is another github repository (called "origin")
 that you might want to get updates from.
 
 Step 1 : Go to our
@@ -65,17 +122,16 @@ Step 1 : Go to our
 from your browser, and click on the Fork button. Choose to fork it to your
 username rather than any organizations.
 
-Step 2 : Clone it. From your terminal :
+Step 2 : Change the old origin to upstream
 
-    $ git clone https://github.com/YOU/{{page.testrepo}}.git
-    $ cd {{page.testrepo}}
-Note: YOU is a placeholder for YOUR github username.  If git asks you for 
-a password here, it probably means you have mis-typed the url for the 
-repository. 
+We want to keep track of the upstream source, but we'll use "origin" to mean the
+main repository we're working with.
 
-Step 3 : 
+    $ git remote rename origin upstream
 
-    $ git remote add upstream https://github.com/{{page.username}}/{{page.testrepo}}.git
+Step 3 : Add your new fork as the origin
+
+    $ git remote add origin https://github.com/YOU/2014-03-18-git-fundamentals.git
     $ git remote -v
     origin  https://github.com/YOU/{{page.testrepo}}.git (fetch)
     origin  https://github.com/YOU/{{page.testrepo}}.git (push)
@@ -86,10 +142,31 @@ Step 3 :
 All repositories that are clones begin with a remote called origin.
 
 ### What's going on here?
-The **git remote add** merely defines a nickname and a location that 
-git will be able to communicate with for making copies of your 
-repository.  "origin" and "upstream" are nicknames for your fork of 
+The **git remote add** merely defines a nickname and a location that
+git will be able to communicate with for making copies of your
+repository.  "origin" and "upstream" are nicknames for your fork of
 {{page.testrepo}} and the "original" {{page.testrepo}}, respectively.
+
+### If something went wrong
+
+We haven't done any real work yet. Just delete your old clone from your home
+directory, and clone again, this time directly from your repo:
+
+    $ git clone https://github.com/YOU/{{page.testrepo}}.git
+    $ git remote add upstream https://github.com/{{page.username}}/{{page.testrepo}}.git
+
+It is fine to fork, then clone, or clone first and realize you need to fork. You
+can always rename your remotes as done above.
+
+### Now, you own origin
+
+To test, see if you can do a push.
+
+    $ git push
+    Everything up-to-date
+    <or a message about what's being sent or any problems>
+
+If you can't push - please ask for help!
 
 ## git fetch : Fetching the contents of a remote
 
@@ -189,7 +266,7 @@ standard documentation file that appears rendered on the landing page
 for the repository in github. To see the rendered version, visit your
 fork on github, (https://github.com/YOU/{{page.testrepo}}/Readme.md).
 
-## github pull requests 
+## github pull requests
 
 One protocol for updating repositories that we use at Software Carpentry
 is the "pull request."   This is a bundle of updates to the repository
@@ -232,7 +309,7 @@ commit your changes.
     $ git branch development
     $ git checkout development
     Switched to branch 'development'
-    $ nano Readme.md &
+    $ nano index.md &
     <edit the readme file and exit nano>
     $ git commit -am "Changed the Readme message to ... "
 
@@ -245,15 +322,15 @@ by pulling down my changes
     $ git merge upstream/master
     Updating 43844ea..3b36a87
     Fast-forward
-     Readme.md |   2 +-
+     index.md |   2 +-
      1 files changed, 1 insertions(+), 1 deletions(-)
 
 Step 3 : You want to push it to the internet eventually, so you pull
 updates from the upstream repository, but will experience a conflict.
 
     $ git merge development
-    Auto-merging Readme.md
-    CONFLICT (content): Merge conflict in Readme.md
+    Auto-merging index.md
+    CONFLICT (content): Merge conflict in index.md
     Automatic merge failed; fix conflicts and then commit the result.
 
 ## git resolve : Resolving Conflicts
@@ -267,11 +344,11 @@ command.
     # Unmerged paths:
     #   (use "git add/rm <file>..." as appropriate to mark resolution)
     #
-    #       unmerged:      Readme.md
+    #       unmerged:      index.md
     #
     no changes added to commit (use "git add" and/or "git commit -a")
 
-The only thing that has changed is the Readme.md file. Opening it,
+The only thing that has changed is the index.md file. Opening it,
 you'll see something like this at the beginning of the file.
 
     =====================
@@ -282,24 +359,24 @@ you'll see something like this at the beginning of the file.
     >>>>>>> development
     =====================
 
-The intent is for you to edit the file and determine how to combine 
+The intent is for you to edit the file and determine how to combine
 the variants from the two branches before committing the result.
 Decisions like this
 must be made by a human.  Differences that can be automatically merged
 usually are, so humans are involved only when different edits touch
-the same piece of the repository. 
+the same piece of the repository.
 
     Vanakkam and Willkommen
 
 This results in a status To alert git that you have made appropriate
 alterations,
 
-    $ git add Readme.md
+    $ git add index.md
     $ git commit
     Merge branch 'development'
 
     Conflicts:
-      Readme.md
+      index.md
     #
     # It looks like you may be committing a MERGE.
     # If this is not correct, please remove the file
@@ -312,9 +389,9 @@ alterations,
     Compressing objects: 100% (6/6), done.
     Writing objects: 100% (6/6), 762 bytes, done.
     Total 6 (delta 2), reused 0 (delta 0)
-    To git@github.com:username/{{page.testrepo}}.git
+    To git@github.com:YOU/{{page.testrepo}}.git
 
-## synchronizing 
+## synchronizing
 Now that lots of us created files and put in pull requests,
 we begin to suspect that the upstream repository might have
 new content and we are out of date. Try
