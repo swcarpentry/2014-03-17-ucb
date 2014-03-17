@@ -1,4 +1,8 @@
 markdown        : redcarpet
+# We may want other extensions... here are some:
+# "no_intra_emphasis", "fenced_code_blocks", "autolink", "with_toc_data"
+redcarpet       :
+    extensions  : ["tables"]
 pygments        : true
 contact         : "info@software-carpentry.org"
 facebook_url    : "https://www.facebook.com/SoftwareCarpentry"
