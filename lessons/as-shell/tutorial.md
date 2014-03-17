@@ -691,7 +691,7 @@ Use your skills wisely :)
 | `du`   | disk usage  | how much stuff is stored where | [Systems](#systems) |
 | `echo`   | holla back    | print to the screen | [Scripts](#scripts) |
 | `grep`   | like "regular expressions"     | search in a file | [Tools](#tools) |
-| `gunzip`   | unzip for *gz files  | unzip something | [Tools](#tools) |
+| `gunzip`   | unzip for *gz files*  | unzip something | [Tools](#tools) |
 | `head`   | top of a file     | print the first lines | [Tools](#tools) |
 | `history`   | history    | see previously-executed commands | [Scripts](#scripts) |
 | `less`   | "less is more"    | scroll through more of a file | [Tools](#tools) |
