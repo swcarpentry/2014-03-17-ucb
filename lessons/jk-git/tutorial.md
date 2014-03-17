@@ -607,7 +607,7 @@ we're trying to avoid by using version control in the first place.
 A final note - if you write your papers in Word, you can use this `git show` 
 approach to approximate the `git diff` command above. Simply use `git show` to 
 bring an old copy of your Word doc into your workspace and then use the Word 
-(Compare and Merge Documents)[http://support.microsoft.com/kb/306484] feature.
+[Compare and Merge Documents](http://support.microsoft.com/kb/306484) feature.
 
 3. Maintaining multiple project branches
 ----------------------------------------
