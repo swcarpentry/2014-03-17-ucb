@@ -70,6 +70,9 @@ This workflow is called a *read-eval-print loop* (REPL) and it's a big part of w
 
 REPL means that you don't need to really know what you're trying to do before you start trying to do it, because you and the computer can figure it out together as you go.
 
+REPL also means that shell is a turn-based game—you can type anything you want,
+and nothing happens until you press return.
+
 
 ## <a name="files"></a> The file system: better safe than sorry
 
@@ -702,7 +705,7 @@ Use your skills wisely :)
 | `top`   | top view of your computer  | what's running right now? | [Systems](#systems) |
 | `touch`   | touch     | make a blank file | [File system](#files) |
 | `wc`   | word count | how many lines, words, and characters? | [Tools](#tools) |
-| `|`   | pipe     | chain commands together | [Tools](#tools) |
+| vertical slash  | pipe     | chain commands together | [Tools](#tools) |
 | `>`   | redirect     | put something into a file | [Tools](#tools) |
 | `>>`   | redirect too    | append something to a file | [Tools](#tools) |
 | `#`   | comment    | don't execute the rest of the line | [Scripts](#scripts) |
