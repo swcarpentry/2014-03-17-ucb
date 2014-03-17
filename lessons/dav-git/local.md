@@ -3,21 +3,61 @@ layout: lesson
 root: ../..
 title: "Version Control With Git: Local Operations"
 ---
-## Example: A Slide Deck for a Presentation
+## Examples
 
-Imagine you have two computers: the first is a big, powerful desktop machine 
-with a big, dual monitor setup. The second is a tiny lightweight netbook you 
-take with you when you travel. Imagine also that you have a presentation at a 
-conference overseas. You know that no matter how "finished" you think you are 
-with your slide deck, inevitably you will realize you need to add an extra figure 
-or recalculate some data AFTER leaving the country and your main desktop 
-workstation. How can you be sure your slide deck, data, and the programs you've 
-written are synchronized between your two machines? How can you be sure that 
-every little change you've made on your netbook is reflected on your desktop? 
-What happens if you start making changes on your slide deck, only to realize you 
+### A Slide Deck for a Presentation
+
+Imagine you have two computers: the first is a big, powerful desktop machine
+with a big, dual monitor setup. The second is a tiny lightweight netbook you
+take with you when you travel. Imagine also that you have a presentation at a
+conference overseas. You know that no matter how "finished" you think you are
+with your slide deck, inevitably you will realize you need to add an extra
+figure or recalculate some data AFTER leaving the country and your main desktop
+workstation. How can you be sure your slide deck, data, and the programs you've
+written are synchronized between your two machines? How can you be sure that
+every little change you've made on your netbook is reflected on your desktop?
+What happens if you start making changes on your slide deck, only to realize you
 need to drop back to the slide deck you had five days ago?
 
-## git : What is Version Control ?
+### Even worse
+
+Check out these real-world examples from [Matthew Gentzkow and Jesse
+M. Shapiro](http://faculty.chicagobooth.edu/jesse.shapiro/research/CodeAndData.pdf):
+
+ - In trying to replicate the estimates from an early draft of a paper, we
+   discover that the code that produced the estimates no longer works because it
+   calls ﬁles that have since been moved.  When we ﬁnally track down the ﬁles and
+   get the code running, the results are different from the earlier ones.
+     - How can we keep track of which version of code generated which data
+     files?
+ - In the middle of a project we realize that the number of observations in one
+   of our regressions is surprisingly low. After much sleuthing, we ﬁnd that many
+   observations were dropped in a merge because they had missing values for the
+   county identiﬁer we were merging on. When we correct the mistake and include
+   the dropped observations, the results change dramatically.
+     - How can we ensure that *all* of our anayses have been re-run with the
+     corrected data?
+ - We and our two research assistants all write code that refers to a common set
+   of data ﬁles stored on a shared drive. Our work is constantly interrupted
+   because changes one of us makes to the data ﬁles causes the others’ code to
+   break.
+     - How can we work on code and data at the same time without breaking each
+       other's work?
+     - How can we share our work once we're ready to share?
+
+### Meanwhile
+
+Hackers love git. So, they've started using it anywhere it kind of makes sense,
+like on Heroku. If you can figure out how to use it, Heroku actually let's you
+deploy web applications *for free*. Part of that is understanding how to use
+git. Likewise, using GitHub, you can deploy static pages for your
+projects with ease.
+
+## git : What is Version Control?
+
+Here's a [list of git
+resources](http://dlab-berkeley.github.io/2014-03-18-git-fundamentals) for this
+class.
 
 Very briefly, version control is a way to *keep a backup of changing
 files*, to *store a history of those changes*, and most importantly to
@@ -41,20 +81,20 @@ suffice.
 
 Version Control System Tool Options
 
-- **Distributed** 
-  - Decentralized CVS (dcvs)  
-  - mercurial (hg)
-  - git (git) 
-  - bazaar (bzr)
+- **Distributed**
+    - Decentralized CVS (dcvs)
+    - mercurial (hg)
+    - git (git)
+    - bazaar (bzr)
 - **Centralized**
-  - concurrent versions system (cvs)
-  - subversion (svn)
+    - concurrent versions system (cvs)
+    - subversion (svn)
 
 ## git clone : we've seen git already
 Yesterday morning, after installing git, we asked everyone to run
-```
-git clone http://github.com/USERNAME/YYYY-MM-DD-PLACE 
-```
+
+    git clone http://github.com/swcarpentry/2014-03-17-ucb
+
 This created a copy of the software carpentry repository materials on
 each of your hard drives yesterday morning.   If you did this yesterday,
 you don't need to to it again.
@@ -62,11 +102,10 @@ you don't need to to it again.
 *But*, last night, the instructors changed the content on github, so now
 the repositories on all our hard drives are out of date.
 
-```
-cd
-cd boot-camps
-git pull
-```
+    cd
+    cd boot-camps
+    git pull
+
 will try to retrieve all of last night's changes and update your local
 copies.  Note: git commands work only when executed from within the directory
 that contains the repository.
@@ -133,7 +172,7 @@ system.
 
      $ git config --global user.name "YOUR NAME"
      $ git config --global user.email "YOUR EMAIL"
-     
+
 ## git init : Creating a Local Repository
 
 To keep track of numerous versions of your work without saving numerous
@@ -166,7 +205,7 @@ Open directories, browse file contents. Learn what you can in a minute.
     .git
     $ cd .git
     $ ls -A
-    HEAD        config      description hooks       info        objects     refs 
+    HEAD        config      description hooks       info        objects     refs
 
 Step 3 : Use what you've learned. You may have noticed the file called
 description. You can describe your repository by opening the description
@@ -176,8 +215,8 @@ called "Reproducible Science". You may call yours anything you like.
     $ nano description &
 
 Step 4 : Applications sometimes create files that are not needed. For
-example, some applications create backup or temporary files with names like'filename.bak' and 
-'filename.aux' that don't really need to be watched by version control. 
+example, some applications create backup or temporary files with names like'filename.bak' and
+'filename.aux' that don't really need to be watched by version control.
 You can ask git to ignore such files by editing
 the file '.git/info/exclude'. Edit the file to ignore files the end with '.bak'.
 
@@ -187,7 +226,10 @@ the file '.git/info/exclude'. Edit the file to ignore files the end with '.bak'.
     # exclude patterns (uncomment them if you want to use them):
     # *.[oa]
     # *~
-    
+
+Pro Git has [more detail](http://git-scm.com/docs/gitignore) on how to ignore
+different kinds of files.
+
 ## git add : Adding a File To Version Control
 
 For the git repository to know which files within this directory you
@@ -198,12 +240,12 @@ create one, then we'll learn the **git add** command.
 
 Step 1 : Create a file to add to your repository.
 
-    $ nano readme.rst &
+    $ nano readme.md &
 
 Step 2 : Inform git that you would like to keep track of future changes
 in this file.
 
-    $ git add readme.rst
+    $ git add readme.md
 
 ## git status : Checking the Status of Your Local Copy
 
@@ -223,13 +265,13 @@ different about them in the terminal, try:
 
     #   (use "git rm --cached <file>..." to unstage)
     #
-    #       new file:   readme.rst
+    #       new file:   readme.md
     #
 
 The null result means that you're up to date with the current version of
 the repository online. This result indicates that the current difference
 between the repository HEAD (which, so far, is empty) and your
-good\_science directory is this new readme.rst file.
+good\_science directory is this new readme.md file.
 
 ## git commit : Saving a Snapshot
 
@@ -339,18 +381,18 @@ There are some useful flags for this command, such as
     git reset filename     (opposite of 'git add filename')
 
 ## git checkout : Discarding unstaged modifications (git checkout has other purposes)
-    git checkout -- filename     
-    
+    git checkout -- filename
+
 ## git rm : Removing a file
    git rm filename   (Removes a file from the repository)
-   
-### Exercise : 
+
+### Exercise :
     1) Create 5 files in your directory with one line of content in each file.
     2) Commit the files to the repository.
     3) Change 2 of the 5 files and commit them.
     4) Undo the changes in step 3)
     5) Print out the last entry in the log.
-    
+
 ## git branch : Listing, Creating, and Deleting Branches
 
 Branches are pointers to a version of a repository that can be edited and
@@ -386,8 +428,8 @@ as well as abandoning local changes.
 
 To switch between branches, try
 
-    $ git branch newbranch 
-    $ git checkout newbranch 
+    $ git branch newbranch
+    $ git checkout newbranch
     $ git branch
 
 How can you tell we've switched between branches? When we used the
@@ -447,9 +489,9 @@ Step 3 : Merge the two branches into the core
 ## git clone : Copying a Repository
 
 Yesterday, you checked out a git type repository at
-https://github.com/USERNAME/YYYY-MM-DD-PLACE
+https://github.com/swcarpentry/2014-03-17-ucb
 
-When you clone the Original repository, the one that is created on your
+When you clone the original repository, the one that is created on your
 local machine is a copy, and contains both the contents and the history.
 With the right configuration, you can share your changes with your
 collaborators and import changes that others made in their versions.  You
@@ -460,27 +502,26 @@ easy-to-use system for managing repositories.
 
 ### Exercise : Cloning Another Repository from GitHub
 
-Step 1 : Pick any repository you like. There are many cool projects
-hosted on github. Take a few minutes here, and pick a piece of code.
+Step 1 : Remember that [list of git
+resources](http://dlab-berkeley.github.io/2014-03-18-git-fundamentals/) from
+earlier? It turns out, that's actually a special kind of [repository on
+git](https://github.com/dlab-berkeley/2014-03-18-git-fundamentals).
 
-Step 2 : Clone it. If you didn't find anything cool, you can chose the
-"instructional" Spoon-Knife repository:
+Step 2 : Clone it:
 
     $ cd
-    $ git clone git@github.com/octocat/Spoon-Knife.git
-    Cloning into Spoon-Knife...
-    remote: Counting objects: 24, done.
-    remote: Compressing objects: 100% (21/21), done.
-    remote: Total 24 (delta 7), reused 17 (delta 1)
-    Receiving objects: 100% (24/24), 74.36 KiB, done.
-    Resolving deltas: 100% (7/7), done.
+    $ git clone git@github.com:dlab-berkeley/2014-03-18-git-fundamentals.git
+    Cloning into 2014-03-18-git-fundamentals...
+    remote: Counting objects: <some number>, done.
+    remote: Compressing objects: 100% ...
+    <etc.>
 
 Step 3 : You should see many files download themselves onto your
 machine. Let's make sure it worked. Change directories to the source
 code and list the contents.
 
-    $ cd Spoon-Knife
-    $ ls 
+    $ cd 2014-03-18-git-fundamentals
+    $ ls
 
 ## git pull : Pulling updates from the Original Repository
 
@@ -491,12 +532,12 @@ will ensure you're working with the most up-to-date version of the
 repository. Updating won't overwrite any changes you've made locally
 without asking, so don't get nervous. When in doubt, update.
 
-    $ git pull 
+    $ git pull
     Already up-to-date.
 
 Since we just pulled the repository down, we will be up to date unless
 there has been a commit by someone else to the Original repository in
-the meantime.
+the meantime. Fortunately, I can demonstrate that now!
 
 ## Resources
 
