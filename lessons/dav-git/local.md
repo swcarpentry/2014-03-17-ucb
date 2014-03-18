@@ -67,6 +67,7 @@ provides both a nice vocabulary list and a fairly complete table of some
 popular version control systems and their equivalent commands.
 
 What problems does version control solve?
+
 * undo mistakes by rolling back to earlier versions
 * run and test with older versions for debugging (when did it break?)
 * allows you to keep and switch between multiple verisons of code
@@ -291,8 +292,8 @@ More frequent commits increase the granularity of your **undo** button.
 **ADVICE: Write good commit messages**
 
 There are no hard and fast rules, but good commits are atomic:
-they are the smallest meaningful change. A good 
-commit message usually contains a one-line description followed 
+they are the smallest meaningful change. A good
+commit message usually contains a one-line description followed
 by a longer explanation if necessary.  Remember, you will be writing
 commit messages for yourself as much as for anyone else.
 
