@@ -1,0 +1,192 @@
+Software Carpentry at UCB, March 17-18, 2014
+
+Kinzie Room
+
+If you are in Tamalpais, go here:
+https://etherpad.mozilla.org/swc-2014-03-17-ucb-tam
+
+Welcome to our Etherpad! 
+
+Please enter your name on the top right of the page (where it says <enter your name>)
+
+You can write things (notes, questions) in this text-box. You can also use the chat box on the bottom right to communicate with instructors, helpers, and other participants. Try it out! 
+
+For a list of common configuration problems and solutions, see below -
+
+https://github.com/swcarpentry/bc/wiki/Configuration-Problems-and-Solutions
+ 
+WIFI network name DBCConf, password BROWER555
+
+Attendees:
+
+
+Matt Davis (Software Carpentry)
+Marzia
+(Dani)elle Traphagen (dtrap) Tissue Engineering
+
+
+
+Anna's Shell lesson: http://swcarpentry.github.io/2014-03-17-ucb/lessons/as-shell/tutorial.html
+
+*Note for Anna to change the ll alias to ls -h for people who don't have that alias
+*For Regular Expressions--make a note about adjusting whitespace according to the file
+*One note I have is to explain the piping in regards to the example a little more just for context purpose
+* Want to use awk with plots? Check out gnuplot, a command-line plotting program
+* "cat pdb_codes.txt | while read line; do ./get_atoms_in_protein.sh $line; done" is equivalent to "while read line; do ./get_atoms_in_protein.sh $line; done < pdb_codes.txt"
+Nice, thanks Anna!
+
+git clone https://github.com/swcarpentry/2014-03-17-ucb.git gird [1]
+
+FYI - while the above did not work on my mac, changing https to git works.
+
+git checkout gh-pages
+cd lessons/md-ipythonblocks/
+ipython notebook
+
+If the "git clone" command doesn't work for you, click "Download ZIP" in the lower right-hand corner of https://github.com/swcarpentry/2014-03-17-ucb/tree/gh-pages
+Unzip the zip file to create a 2014-03-17-ucb-gh-pages directory
+mv that directory somewhere nice
+continue from the "cd" line
+
+https://gist.github.com/changhiskhan/9607293
+columns = ['person', 'country', 'variable1', 'variable2']
+observations = [
+    ['john', 'USA', 12, 50],
+    ['hans', 'USA', 58, 1],
+    ['eve', 'Canada', 918, 345],
+    ['jimmy', 'Canada', 123, 4],
+    ['lisa', 'USA', np.nan, 5],
+    ['jill', 'Canada', 13, np.nan]
+]
+*casting part was confusing
+
+
+A lil extra feedback- posting the ipython notebooks in the future could be helpful so that people are able to catch up in the lecture if they have (in my case install drama) issues that cause hang-ups. :)
+
+
+I agree - Please post the notebooks
+
+Note that many notebooks are available in the 'lessons' directory
+
+http://swcarpentry.github.io/2014-03-17-ucb/lessons/
+
+imports for the vis:
+%matplotlib inline
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+df = pd.read_csv('oak_weather_2013.csv')
+df2 = df.set_index(df['PST'], drop=False)
+
+Also, can the color of the '(' and '[' be changed on the display.  I can't see the light blue and keep missing them and getting syntax errors
+
+http://nbviewer.ipython.org/gist/9610711
+
+In commands like "nano description &" the ampersand means that the command should run in the background and let you use keep using your terminal. This may not work on MinGW.
+
+
+Related git repo:
+
+https://github.com/dlab-berkeley/2014-03-18-git-fundamentals
+
+Note - for git commands, add ".git" to end
+
+to find and fork the repo:
+* go to github.com
+* search for "dlab-berkeley"
+* click on "Users" on the lower left
+* click on "dlab-berkeley"
+* click on "2014-03-18-git-fundamentals"
+* click on "Fork" in the upper-right
+* click on the icon for your user account
+* now you're on your fork!
+
+
+https://etherpad.mozilla.org/swc-2014-03-17-ucb-kin
+
+For those (at least on the mac) who don't have py.test, you can run
+pip install -U pytest
+from the command line. May need to run with sudo (sudo pip install -U pytest)
+
+
+
+
+Thank you.  The testing segment was great!
+
+Link to lightweight systems for CSV metadata, etc.:
+http://data.okfn.org/standards
+
+------
+dependencies:
+
+http://www.pip-installer.org/en/latest/installing.html
+
+put your Python-specific dependencies in a file called requirements.txt
+eg:
+
+numpy==1.8.0
+ipython>=0.13
+
+then run on the command line:
+
+pip install -r requirements.txt
+
+
+info@software-carpentry.org
+
+jiffyclub@gmail.com  @jiffyclub   http://penandpants.com
+Anna: annarschneider@gmail.com @windupanna http://annaschneider.org github:aschn
+Dav: davclark@berkeley.edu @davclark (twitter, GitHub)
+
+D-Lab: http://dlab.berkeley.edu
+
+Good
+Well prepared+1
++ I really liked the Reproducible_workflow section and the testing and modules section. Mat knows his stuff. Unfortunately, most of us are not at that stage of python software development yet. But I guess it instills good habits.
+Great job with the testing and reproducibility sections!+1
+
+Very well structured with all aspects of a reproducible workflow covered in at least some detail +1
+I thought Anna, Mat and Dav were very good instructors. I thought the two day course format was very effective, getting us up and running from basics was very effective.I was really most interested in GitHub and this helped me think through how to incorporate it as a tool in my workflows.
+Live demos (python/ipython, git, testing, etc.) that we could try out in real time.+1
++ Matt Davis is a great teacher,  His sections were very +1+1
+clear and the documentation was easy to follow.
+All the instructors were friendly and helpful and had a great attitude.+1+1
+
+First half of 1st day and last half of 2nd day were great! Very easy to follow
+Good pacing in general, though shell/intro might have gone faster to leave more time for demos +1
+Wish I have learned the reproducible workflow earlier+1
+Great organization of content+1
+
+Bad
+some times too fast
+Tutorial documentation not always available prior to the tutorial
+Git section was a bit confusing - more graphic would help
+More Python!
+The notebooks should all be releases prior to the segment,
+More detailed notes for those of us who had to step in & out (and so missed content)
+The Monday afternoon session on ipython and matrix operations was a bit rushed and harder to follow, although I still got something out of it.  +1
+Git section was not very intuitive. I expected there to be more python instruction in this bootcamp. I really didn't learn much new stuff regarding making python scripts and programs.
+A section on using a data storage service coupled with github would be nice+1
+In the Monday sessions, if I fell behind, it was hard to catch up (couldn't see the commands previously entered by the instructor in the iPython notebooks)
+The demonstration with notebook would be better with better pace - with inline output, it's hard to see the original code after you run it (wonder if there is a full screen mode)
+Maybe get a room with multiple projectors/screens?
+Need more time to understand Git/GitHub
+commuting form palo alto
+last half of 1st day on pandas and numpy was too fast. And notes would help - please provide online. Thanks! +2
+On the 1st day it would be useful to have some discussion of what the advantages of python are over some other programming languages.
+Needed a few more power strips in Kinzie Room - many seats were not near one.
+Windows not as well supported as Mac/Linux
+
+Other
+Thanks for your patients 
+You were all great. Thanks so much.+1000 +1+1
+parallel computing with python?
+I would like another class on scientific computing with python to go into more depth+1
++1 I know ipython is your favorite but it was more like R (when combined with pandas and numpy), which was not what I was expecting from this workshop. Maybe a more advanced python class with some OOP and develeoping softwares/modules would be good. But overall this was great.thanks!!+1
+Thanks so much. This was a great experience for me and I will definitely look to attend another SWC event.
+谢谢
+Amazing that instructors are volunteering for this! 
+
+

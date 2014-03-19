@@ -1,0 +1,195 @@
+Software Carpentry at UCB, March 17-18, 2014
+
+Tamalpais Room
+
+If you are in the Kinzie room, go here:
+https://etherpad.mozilla.org/swc-2014-03-17-ucb-kin
+
+Welcome to our Etherpad! 
+
+Please enter your name on the top right of the page (where it says <enter your name>)
+
+You can write things (notes, questions) in this text-box. You can also use the chat box on the bottom right to communicate with instructors, helpers, and other participants. Try it out! 
+
+For a list of common configuration problems and solutions, see below -
+
+https://github.com/swcarpentry/bc/wiki/Configuration-Problems-and-Solutions
+ 
+http://swcarpentry.github.io/2014-03-17-ucb/
+
+WIFI network name DBCConf, password BROWER555
+
+ctrl+c kills the current process
+
+ctrl+d exits python (and possibly other programs) back to shell.
+
+
+IPython:
+Shift+Enter: Run code (same as "Run button")
+
+
+Marzia Miletto - UCB/PMB
+Peter Hartsough UCD 
+Beth Robertson - UCB//Endeavor Global
+Javier Palma-Guerrero, PMB
+Jade Benjamin-Chung, Epidemiology
+Catherine O'Hare, UCB
+Dilek Uz, UCB ARE
+Anna Engelbrektson, PMB
+Jack Wang, MCB
+Sabine Frey SSL
+Wendy Pennell EECS
+Charlotte Carlstrom, UCB/PMB
+Heejung Cho, UC Berkeley
+Dana Loutey, PMB
+Ana Maria Almeida, Specht Lab (PMB, UCB)
+Carey Huh, Vision Science/Optometry
+Leela Velautham chemistry UCB
+Monika Fischer, PMB
+Israel Figueroa, PMB
+Kenny Mok, PMB
+Robin Mejia, biostat
+David Kowbel, PMB
+Zhen Sun, ARE UCB
+Paul Wolski, UCB, Energy Biosciences Institute
+Harald Frey, SSL
+Amrita Hazra, PMB, UC Berkeley
+Roxana Yockteng - sp
+Nando Montoya-UC Berkeley 
+Guillaume Kroll, Center for Effective Global Action
+Liam Foley 
+Kam Hamidieh, uSC
+Natalia Chousou-Polydouri, UC Berkeley
+Joncarmen mergenthaler Neuroscience Grad
+Roxana Yockteng UC berkeley, Specht Lab, PMB
+Michael Vendetti, UC Berkeley
+Ravi Alla, CGRL QB3
+John Lowe (Linguistics, IS&T)
+Michael Quinlan, Nuclear Science LBL
+Jon Stiles, UC Berkeley
+Vickie Zhang, UC Berkeley
+
+Note that for at least some Windows installs, man won't work. What will work is command --help
+
+Answers to grep exercise in shell:
+
+grep -E '^.[aeiou]' sorted_animals.csv 
+grep -E 'r.*n' sorted_animals.csv 
+
+
+PACE
+mixed feelings +1
+TOO FAST +1+1+1+1+1+1+1+1 1+1+1+1
+TOO SLOW+1+1
+ABOUT RIGHT
++1 +1+1 +1+1+1++1+11+1 +1+1+1+1+1
+
+QUESTIONS
+Will all resource be availalbe? It should all be on the course website - let us know if anything isn't
+
+In particular, see here:
+http://swcarpentry.github.io/2014-03-17-ucb/lessons/
+
+
+OTHER
+
+Overall  very good intro given the audience background.  Also given the resources, the course is well managed.+1
+
+speak a little louder
+smaller groups would be nice agreed
+I liked the stickey note system+1+1+1+1
+I liked the course, wish it could be applied in a way more to real life examples
+try not to skip steps (make logical leaps) and use shortcuts while coding (unless you are explicit about them)
+At times I got lost trying to follow the modifications of the scripts on the big screen compared to what I had on my compute screen. But the bootcamp was awesome! Learned a lot! Thanks!
+agreed
+Thanks
+
+If you want to see what branch you're on directly from your Terminal prompt, do the following
+
+1. Open a new terminal window or cd to your home folder
+2. Type "nano .bash_profile". You will open a text file with some stuff in it.
+3. Copy and paste the following lines into it (paste should work on Macs)
+
+parse_git_branch() {
+                git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+        }
+export PS1="\W\$(parse_git_branch)$ "
+
+4. Exit nano, saving changes. Quite and reopen Terminal, then navigate to a git respository and you should see your branch right before the $ symbol.
+
+
+
+
+GOOD
+All instructors, especially Justin, were excellent+1++11+1+1+1+1+1+1+1+1+1+1+1
+
+Good mix of exercises and in class lecture+1+1+1+1 +1+1
+Shell scrpting was very helpful +1+1
+Well paced exercises+1+1+1+1 +!
+Exercises related to our scientific use
+Access to ipython tutorial notebooks+ 1+1+1+1
+Great explanation of version control+1+1+1+1+1
+Learned a lot about resources and how to get help+
+I feel like the GIT workshops and the introduction to the shell were extremely usefull+1 +1
+The space
+Good walkthrough for describing object types in python
+Really practical and useful, the version control is so cool. cannot wait to try it+1+1
+thorough coverage of a number of subjects with a small time constraint+1
+Good instructors+1+1
+Liked the way the course was explained, well done, in a moderate pace. I appreciate you guys volunteering your time to teach the course+1+1+1
+Very useful advice in the tutorials that go above the how-to of the software we were introduced to
+The exercises were informative and helpful+1
+Examples of workflow applicable to project we work on every day
+recommended directory structure+1
+"Creating a reproducible workflow" is  great synthesis of everything we've learned+1
+Great, knowledgable instructors with a lot of patience for beginners. It was wonderful to have so many instructors in each room to respond quickly to students questions. +1+1
+the number of instructors available to come to rescue/answer individual questions was really good+1
+
+gaind insight into needs of postdocs and researchers I support
+reminded of shell scripting learned long ago
+deeper look into git
+
+BAD
+provide full solutions
+The programming level expected for participants was higher than I thought. I had emailed the organizers to inform them that I did not any prior programming experience, and they said it was meant for people such as me. But the pace and expectation seemed to be that one should be somewhat used to programming logic. Excellent job overall though, to accommodate everyone's pace!+1
+too fast + 1+1
+Pace was  so fast that I couldn't keep up with the typing. More complicated "real world" data sets would be usefull.+1
+hard to see sometimes, resolution and light issues+1+1+1+1
+A bit too fast+1
+No afternoon cookies+1+1+1+1+1
+Numpy and Pandas information pretty limited. 
+Got lost a little at teh end of the day, so much (useful) information! Cant wait to try on my own+1
+Hard to see the big picture sometimes, could help to figure out when/how to use particular things+1
+occasionally a bit fast and not showing the typed text/commands
+More Excercies would have been nice
+Occasional logical leaps and shortcuts during the introduction to Python. It would be good to avoid those and maybe add a list of available shortcuts to the resources.
+It would have been nice to have more exercises, which is perhaps more like a compliment because the exercises were very helpful. I think small exercises more frequently, along with longer exercises
+No happy hour+1+1
+Need more examples to get started using different packages.
+Found a bit hard sometimes to understand where certain lines of the code was coming from. Felt a "vocabulary" or itemized list should've been given with some definitions prior to starting the course+1+1+1
+For those new to coding this was a bit like drinking from a waterhose+1, but was fun! I would suggest doing 3 levels next time -- BRAND NEW; a little experience; Advanced +1+1
+Sometimes volume in room was a little distracting +1
+Hard to keep up with what was going on if someone around you had a question and was talking to another instructor because couldn't hear what was being said
+The existence/accessibility of "master" notebooks or "filled-in" notebooks on the software carpentry website should have been mentionned at the beginning so people are not madly typing everything that's already there (and not paying attention to what's being said)
+
+NA :-)
+
+
+OTHER
+Instructors knew their stuff
+Give us homework ! It would be fun to go hom and have to try it out with correctable exercise at the beginning of the 2nd day of class -- Thanks to all of the instructors!
+Good job overall - it is hard to teach to this audience
+MORE shell scripting 
+Just a suggestion: Maybe videorecord the sessions?
+More centralized resources could help bring everything together
+Instructors taught us very well! I enjoyed the bootcamp very much+1
+I wish you could take more time developing the exercises in order to make them more student specified (based on their needs or expectations for taking the course). In any case, i had a good time and enjoyed very much the course, thank you!!
+A good job of handling different levels of users.  I had some programming/python experience, but the version control and terminal stuff was really helpful
+
+Instructors were very helpful for individual questions and were patient.
+It would be nice if it was longer and we learned skills in the morning and then had workshops where we could code ourselves with data sets in the afternoon.
+I would love an introduction about the basic things (datatypes, functions etc) in Python (or whatever language for that matter) as well as a few basic things about its syntax. I think it would be useful when you start a new language or programming in general.
+GREAT JOB!!!!!
+Great job, you'll are all so patient, and so excited about programming, it is infectious!
+Many thanks! It was fun+1+1+1
+
