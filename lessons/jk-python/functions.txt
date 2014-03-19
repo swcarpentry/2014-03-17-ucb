@@ -1,0 +1,105 @@
+import numpy as np
+
+# You're familiar with functions
+x = 3.333333
+print round(x,2)
+print np.sin(x)
+
+# Write your own function
+def multiply(x,y):
+	return x*y
+
+print type(multiply)
+print multiply(4,3)
+
+def say_hello(time, people):
+	return 'Good ' + time + ', ' + people
+
+say_hello('afternoon', 'friends')
+
+# All arguments must be present or you'll get an error
+say_hello('afternoon')
+
+# But you can use keyword arguments to make some optional
+def say_hello(time, people='friends'):
+	return 'Good ' + time + ', ' + people
+
+say_hello('afternoon')
+say_hello('afternoon', 'colleagues')
+
+COPY THESE INTO A FILE MEAN_SIGHTINGS.PY
+
+import sightings as sig
+sig.multiply(2,3)
+sig.say_hello('afternoon')
+
+--------------------------
+
+NOW, LET'S TALK ABOUT A REALISTIC WORKFLOW USING NOTEBOOK AND FILES
+
+Let's say we want to build a module to count number of animals
+
+!cat sightings_tab_sm.csv
+
+import pandas as pd
+import numpy as np
+
+WRITE SOME PSEUDOCODE TO DESCRIBE WHAT WE WANT TO DO
+
+# Goal: Get number of records and mean sightings per record
+
+# Choose focusanimal
+
+focusanimal = 'Owl'
+
+# Load table
+
+table = pd.read_csv('sightings_tab_sm.csv')
+
+# Get subtable with only that animal
+
+isfocus = table['Animal'] == focusanimal
+subtable = table[isfocus]
+
+# Count number of records
+
+n_records = len(subtable)
+
+# Calculate mean sightings per record
+
+mean_sightings = np.mean(subtable['Count'])
+
+# Print number and mean
+
+print n_records, mean_sightings
+
+NOW WE HAVE A SCRIPT, LET'S MAKE IT A REUSABLE FUNCTION
+
+def get_sightings(filename, focusanimal):
+"""
+Get number of records and mean sightings per record
+"""
+
+	# Choose focusanimal
+	focusanimal = 'Owl'
+
+	# Load table
+	table = pd.read_csv('sightings_tab_sm.csv')
+
+	# Get subtable with only that animal
+	isfocus = table['Animal'] == focusanimal
+	subtable = table[isfocus]
+
+	# Count number of records
+	n_records = len(subtable)
+
+	# Calculate mean sightings per record
+	mean_sightings = np.mean(subtable['Count'])
+
+	# Print number and mean
+	return n_records, mean_sightings
+
+NOW PUT THIS FUNCTION IN SIGHTINGS MODULE, IMPORT IT, AND RUN IT
+
+from mean_sightings import get_sightings
+print get_sightings('sightings_tab_sm.csv', 'Owl')
